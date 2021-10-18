@@ -269,6 +269,7 @@ https://github.com/Gaket/MvuMovieDb
 * One-time events
 * Navigation
 * Seperate classes for UI models
+* Compose for View
 
 ---
 
