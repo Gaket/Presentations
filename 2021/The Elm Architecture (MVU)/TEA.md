@@ -1,4 +1,4 @@
-
+slidenumbers: true
 
 # TEA in Prod
 
@@ -10,13 +10,23 @@
 
 # Artur Badretdinov
 
-Digital Nomad, Lead Android Developer
+Digital Nomad, Lead Android Developer at Squire
+
 https://t.me/travelernote
 https://t.me/ohmyeventbot
 
 ---
 
-# The Elm Architecture in prod
+# The Elm Architecture 
+# in prod
+
+---
+
+# Live demo ahead
+## Real app approach, 160 Fragments
+
+Demo Repo:
+https://github.com/Gaket/MvuMovieDb
 
 ---
 
@@ -27,11 +37,15 @@ https://t.me/ohmyeventbot
 
 ---
 
+![](https://www.youtube.com/watch?v=XvHOvEudmmo)
+
+---
+
 > Elm is a **functional** language for web apps
 
 ---
 
-Elm Architecture is one of the UDF band
+#[fit] Elm Architecture is one of the UDF band
 
 ---
 
@@ -82,6 +96,7 @@ Elm Architecture is one of the UDF band
 #[fit] updated state = f(state, message)
 
 ---
+[.build-lists: true]
 
 # What do we want?
 
@@ -89,7 +104,7 @@ Elm Architecture is one of the UDF band
 * Making state handling visible
 * Clear responsibilities
 * Increased testability
-* No flakiness
+* No mocks, No flakiness
 * Easy to reason about
 
 ---
@@ -120,9 +135,15 @@ Elm Architecture is one of the UDF band
 
 ---
 
+# Unidirectional Flow (UDF)
+
+![inline](img/MVU.png)
+
+---
+
 # Real Unidirectional Flow (UDF)
 
-* TODO: pic with more items here
+![inline](img/MVU2.png)
 
 ^ Attentive listeners may have noticed that working with db or network is really a side effect
 
@@ -192,11 +213,46 @@ class GetMovies(query: String) : Message ({ deps ->
 
 ---
 
+# View
+
+```kotlin
+class MoviesFragment {
+ override fun initDispatchers() {
+    binding.searchInput.afterTextChanged { query ->
+      dispatch(MoviesFeature.Message.SearchUpdated(query, LocalTime.now()))
+    }
+  }
+   override fun render(state: MoviesFeature.State) {
+    if (state.loading) {
+      binding.searchIcon.visibility = View.GONE
+      binding.searchProgress.visibility = View.VISIBLE
+    } else {
+      binding.searchIcon.visibility = View.VISIBLE
+      binding.searchProgress.visibility = View.GONE
+    }
+   }
+}
+```
+
+---
+[.build-lists: true]
+
 # How to debug
 
 1. Check what state gets to View
 2. Check the `update` function calls
 3. Roll back a few messages if needed
+
+---
+[.build-lists: true]
+
+# Logs
+
+18:00:00 Init: State {...}
+18:00:03 Message: OnMovieClick(Movie(...))
+18:00:03 Render: State {...}
+18:00:04 Message: OnMoviesResult(Movies(...))
+18:00:04 Render: State {...}
 
 ---
 
