@@ -1,6 +1,6 @@
 Hi!
 
-My name is Artur and here is a list of the talks I've given:
+My name is Artur, I'm a Lead Android Dev and here is a list of the talks I've given. Most of them are in Russian about Android development and Digital Nomad lifestyle.
 
 2021
 1. [Architecture in Small Teams](https://www.youtube.com/watch?v=8Vs2O8xyHyY)
