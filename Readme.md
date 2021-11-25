@@ -19,7 +19,7 @@ My name is Artur, I'm a Lead Android Dev and here is a list of the talks I've gi
 1. [Persistency](https://youtu.be/5ZBjLvknWFE)
 1. [Intro to Reactive Development](https://youtu.be/0U_Px2-VGSk)
 1. [Ribs, MVI, Compose - BuzzWords or the stack for your next app?](https://youtu.be/XvHOvEudmmo)
-1. [EN] Digital Nomad. Pros and Cons. Video disappeared, just a couple of tweets left :( (one)[https://twitter.com/droidcon/status/1313056369587748868], (two)[https://mobile.twitter.com/aim_nab/status/1314505705236422657]. But at least you know you can discuss it with me in (Twitter)[https://twitter.com/Arturstwit] :)
+1. [EN] Digital Nomad. Pros and Cons. Video disappeared, just a couple of tweets left :( [one](https://twitter.com/droidcon/status/1313056369587748868), [two](https://mobile.twitter.com/aim_nab/status/1314505705236422657). But at least you know you can discuss it with me in [Twitter](https://twitter.com/Arturstwit) :)
 1. [Remote life. V2](https://youtu.be/AOal6QRx2kU)
 1. [Interviewing experts](https://youtu.be/hcHes2GTN0U)
 1. Podlodka Droid Crew. Public interview on Android Architecture
@@ -32,13 +32,13 @@ My name is Artur, I'm a Lead Android Dev and here is a list of the talks I've gi
 1. MVWhatever. How to choose a UI layer architecture?s
 
 2018
-1. [EN] Droidcon London. UI Profiling in examples. The recording was lost :( Luckily, I have the next one:
-1. [EN] [Mobilization. UI Profiling in examples](https://youtu.be/LGLQU3FRguo)
-1. [Clean Architecture](https://youtu.be/a9JdtP5iFHc)
-1. [Profiling in Examples. Looking for a bottleneck](https://youtu.be/EtWt3Vzm6pE)
-1. [Mobile optimized. Profiling](https://youtu.be/heR9XE47YD4)
-1. [The levels of testing](https://youtu.be/55RudFhK5lg)
-1. [Clean Architecture. Master class](https://youtu.be/8ATEB0ZzelQ)
+1. [EN] Droidcon London. UI Profiling in examples. The recording was lost. Luckily, I have the next one:
+3. [EN] [Mobilization. UI Profiling in examples](https://youtu.be/LGLQU3FRguo)
+4. [Clean Architecture](https://youtu.be/a9JdtP5iFHc)
+5. [Profiling in Examples. Looking for a bottleneck](https://youtu.be/EtWt3Vzm6pE)
+6. [Mobile optimized. Profiling](https://youtu.be/heR9XE47YD4)
+7. [The levels of testing](https://youtu.be/55RudFhK5lg)
+8. [Clean Architecture. Master class](https://youtu.be/8ATEB0ZzelQ)
 
 2017
 1. [25,000 views 😍] [Intro to Clean Architecture](https://youtu.be/MYXt_9d_2ps)
