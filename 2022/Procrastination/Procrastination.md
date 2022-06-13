@@ -8,22 +8,27 @@ slide-transition: true
 
 ---
 
-# About me
-
-* Artur Badretdinov
-* Google Developer Expert
-* [20+ talks last 2 years](https://github.com/Gaket/presentations)
-* [20+ countries visited last](https://youtu.be/AOal6QRx2kU)
-* 1 wife, 1 child
-* 9 hours of sleep per day
-
----
-
 ![](img/morning.jpg)
 
 ---
 
 ![](img/evening.jpg)
+
+---
+[.autoscale:true]
+
+# About me
+
+* Artur Badretdinov
+* Master of Software Engineering, Innopolis
+* Google Developer Expert
+* Director of Android Engineering @ Squire
+* [20+ talks last 2 years](https://github.com/Gaket/presentations)
+* [20+ countries visited last](https://youtu.be/AOal6QRx2kU)
+* 1 wife, 1 child
+* 9 hours of sleep per day
+
+
 
 ---
 
@@ -47,6 +52,8 @@ slide-transition: true
 ---
 
 ![](img/eisenhower.png)
+
+^Do, schedule, delegate, delete Urgent tasks require your immediate attention. When something is urgent, it must be done now, and there are clear consequences if you don’t complete these tasks within a certain timeline. These are tasks you can’t avoid, and the longer you delay these tasks, the more stress you’ll likely experience, which can lead to burnout.
 
 ---
 [.background-color: #fff]
@@ -242,6 +249,28 @@ Reading mode
 [^2]: Maxim Dorofeev [Ontiko talk](https://habr.com/ru/company/oleg-bunin/blog/348714/)
 ---
 
+# A minute of Science
+
+* Daniel Kahneman
+* Thinking Fast and Slow
+
+^ Most of the times we think fast. Then we make mistakes. Rarely, but sometimes, we do think slow. Then we get it right. There, you’ve read the book. Read this fast, think it over slowly, and skip this book.
+
+---
+
+# 2 parts of a brain
+
+* System 1: Automatic and impulsive
+* Conscious
+
+---
+
+![](img/baseball.jpg)
+
+^For example, what's the color of a baseball ball? White. For example, let's take counting. It requires some thinking, right? A baseball bat and a ball cost $1.10. The bat costs $1 more than the ball. How much does the ball cost?
+
+---
+
 # Making complex simpler
 
 * Correct tasks wording
@@ -299,7 +328,9 @@ Reading mode
 
 ---
 
-https://bit.ly/3MRMHx0                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+# [Jedy Techniques](https://bit.ly/3MRMHx0)
+
+![](img/j.png)
 
 ---
 
@@ -320,6 +351,7 @@ https://bit.ly/3MRMHx0
 1. Stop and Think!
 1. Try Pomodoro
 1. Try Agile Results
+1. Check out Jedy Techniques
 
 ---
 
@@ -328,5 +360,12 @@ https://bit.ly/3MRMHx0
 ![fit right](img/90.png)
 
 ---
+
+# Links
+
+* [These slides](https://github.com/Gaket/presentations/tree/master/2022/Procrastination)
+* [Wait but why blog](https://waitbutwhy.com/)
+* [Anti Procrastination course (RU)](https://bit.ly/3MRMHx0)
+* [Eisenhower matrix by Asana](https://asana.com/resources/eisenhower-matrix)
 
 
