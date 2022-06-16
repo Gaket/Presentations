@@ -28,7 +28,11 @@ slide-transition: true
 * 1 wife, 1 child
 * 9 hours of sleep per day
 
+^ Joke it was not always like that. School / life
 
+---
+
+![fit](img/qr-code.png)
 
 ---
 
@@ -71,7 +75,7 @@ slide-transition: true
 
 ---
 
-# Agile results
+# Agile results [^4]
 
 
 [.column]
@@ -87,6 +91,8 @@ slide-transition: true
 * Month
 * Year
 
+[^4]: [30 days maraphone](https://gettingresults.com/30-days-of-getting-results/)
+
 ---
 
 # Core practices of Agile Results
@@ -95,6 +101,12 @@ slide-transition: true
 * Timeboxing
 * Triage
 * [Remaining 9](https://medium.com/swlh/the-12-practices-of-agile-results-eb6e7942a2cf)
+
+---
+
+[.background-color: #fff]
+
+![fit](img/my-results.png)
 
 ---
 
@@ -182,12 +194,12 @@ slide-transition: true
 
 # External Distractors
 
-* Notifications
-* Ads
 * News feeds
 * Colleagues
 * Family
 * Hunger
+* Notifications
+* Ads
 
 ---
 
@@ -247,6 +259,7 @@ Reading mode
 * Do easy stuff often 
 
 [^2]: Maxim Dorofeev [Ontiko talk](https://habr.com/ru/company/oleg-bunin/blog/348714/)
+
 ---
 
 # A minute of Science
@@ -367,5 +380,6 @@ Reading mode
 * [Wait but why blog](https://waitbutwhy.com/)
 * [Anti Procrastination course (RU)](https://bit.ly/3MRMHx0)
 * [Eisenhower matrix by Asana](https://asana.com/resources/eisenhower-matrix)
+* [Workflowy referral](https://workflowy.com/invite/365553c8.lnx)
 
 
