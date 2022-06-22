@@ -24,12 +24,14 @@ https://www.linkedin.com/in/gaket/
 # The Elm Architecture 
 ## in prod
 
+![fit right 70%](img/qrcode.png)
+
 ---
 
 # Live demo ahead
 ## Real app approach, 160 Fragments
 
-Demo Repo:
+Library + Demo Repo:
 https://github.com/Gaket/GreenTea
 
 ^ There is a cherry on the cake
@@ -118,6 +120,14 @@ https://github.com/Gaket/GreenTea
 
 ---
 
+![fit](img/udf_high.png)
+
+---
+
+![fit](img/udf_detailed.png)
+
+---
+
 ![fit](img/UDDF2.png)
 
 ---
@@ -145,6 +155,16 @@ https://github.com/Gaket/GreenTea
 
 ---
 
+# Really Quick Recap
+
+* Pure functions
+* Immutability
+* Higher order functions
+* State machine
+* Side effects
+
+---
+
 # view = f(state)
 
 ---
@@ -166,6 +186,7 @@ MVVM with additional constraints:
 # Our MVI experience
 
 * [RIBs](https://github.com/badoo/RIBs) and [MVICore](https://github.com/badoo/MVICore)
+* 6 months of development
 * Great separation of concerns
 * A lot of features
 * A LOT of code
@@ -182,17 +203,7 @@ MVVM with additional constraints:
 
 > Elm is a **functional** language for web apps
 
----
-[.build-lists: true]
-
-# Really Quick Recap
-
-* Unidirectional data flow
-* Pure functions
-* Immutability
-* Higher order functions
-* State machine
-* Side effects
+^ That's why we have so many works like pure functions and side effects
 
 ---
 
@@ -209,10 +220,11 @@ MVVM with additional constraints:
 * State
 * Messages
 * Update
-* Commands
+* Effects
 * Dependencies
 
 ---
+[.build-lists: false]
 
 # First approach, MVICore
 
@@ -248,7 +260,7 @@ MVVM with additional constraints:
 
 # Real-world MVU
 
-![inline](img/MVU2.png)
+![inline](img/udf_schema.png)
 
 ^ Attentive listeners may have noticed that working with db or network is really a side effect
 
@@ -256,7 +268,7 @@ MVVM with additional constraints:
 
 # Real-world MVU
 
-![inline](img/MVU3.png)
+![inline](img/udf_test.png)
 
 ^ Attentive listeners may have noticed that working with db or network is really a side effect
 
@@ -303,7 +315,7 @@ Pure boy
 
 ```kotlin
  fun update(message: Message, state: State)
-                     : Pair<State, Set<Command>> =
+                     : Pair<State, Set<Effect>> =
     when (message) {
         is Message.MovieClicked -> handleMovieClick(message.movie, state)
         is Message.SearchUpdated -> handleSearchUpdate(message.query, state)
@@ -324,7 +336,7 @@ Pure boy
 ---
 [.build-lists: false]
 
-# Commands
+# Effects
 
 * DB
 * Network
@@ -335,29 +347,6 @@ class GetMovies(query: String) : Message ({ deps ->
     val movies = deps.repository.searchMovies(query)
     return@single Message.MoviesResponse(movies)
 })
-```
-
----
-
-# View
-
-```kotlin
-class MoviesFragment {
- override fun initDispatchers() {
-    binding.searchInput.afterTextChanged { query ->
-      dispatch(MoviesFeature.Message.SearchUpdated(query, LocalTime.now()))
-    }
-  }
-   override fun render(state: MoviesFeature.State) {
-    if (state.loading) {
-      binding.searchIcon.visibility = View.GONE
-      binding.searchProgress.visibility = View.VISIBLE
-    } else {
-      binding.searchIcon.visibility = View.VISIBLE
-      binding.searchProgress.visibility = View.GONE
-    }
-   }
-}
 ```
 
 ---
@@ -401,15 +390,46 @@ https://github.com/Gaket/GreenTea
 
 * One-time events
 * Navigation
-* Seperate classes for UI models
+* Separate classes for UI models
 * Compose for View
 
 ---
 
 # Imperfect world
 
+
+[.column]
+```kotlin
+  data class State(
+    val loading: Boolean,
+    val movies: List<Movie>,
+    val message: Text,
+  )
+```
+
+[.column]
+![fit](img/movies_scrolled.jpeg)
+
+---
+
+# Imperfect world
+
+
+[.column]
+```kotlin
+  data class State(
+    val loading: Boolean,
+    val movies: List<Movie>,
+    val message: Text,
+  )
+```
+
+[.column]
+![fit](img/movies_scrolled.jpeg)
+
+[.column]
 * View is expected to be stateless
-* Still we have scroll position, animations
+* We still have scroll position, animations, Toasts
 
 ---
 
@@ -514,10 +534,35 @@ verify(someRepo.wasCalled())
 # Testing MVU
 
 ```
-val (viewState, commands) = feature.update(prevState, message)
+val (viewState, effects) = feature.update(prevState, message)
 assertThat(viewState.isLoading).isTrue
 assertThat(viewState.error).isNull
-assertThat(commands).contain()
+assertThat(effects).contain()
+```
+
+---
+
+Backup Slide:
+
+# View
+
+```kotlin
+class MoviesFragment {
+ override fun initDispatchers() {
+    binding.searchInput.afterTextChanged { query ->
+      dispatch(MoviesFeature.Message.SearchUpdated(query, LocalTime.now()))
+    }
+  }
+   override fun render(state: MoviesFeature.State) {
+    if (state.loading) {
+      binding.searchIcon.visibility = View.GONE
+      binding.searchProgress.visibility = View.VISIBLE
+    } else {
+      binding.searchIcon.visibility = View.VISIBLE
+      binding.searchProgress.visibility = View.GONE
+    }
+   }
+}
 ```
 
 ---
