@@ -8,34 +8,58 @@ Understanding The Role Of “Super Apps” In The Digital Payments Ecosystem
 
 Director of Android Engineering at Squire
 Google Developer Expert
+A millenial with many Generation Z friends
+Developed a banking app on Android
+
+---
+
+# About me
+
 Born in Russia
 Relocated to Canada 2 years ago
-Developed a banking app on Android
-User of 7 banks in Russia
+User of 8 banks in Russia
 User of 5 banks in Canada
+User of a couple UK neobanks
+
+^ Context  matters
 
 ---
 
 # Agenda
 
-1. Evolution of banking apps
-1. Top-X features to stay at top of the market
-1. A few personal stories
+1. A few personal notes on banking apps
+1. Evolution of banking apps in Russia
+1. Top-X features to stay at the edge of the market
+1. Superapps vs Ecosystems
 
-^ Let me decrese the degree of seriousness... by a bit
+^ Let me decrease the degree of seriousness... by a bit. I'm in a shirt first time since my wedding... that was quite a while ago
 
 ---
 
-# First online-only banks (Neobanks)
+# The chicken or the egg dilemma
 
-Tinkoff Bank (Russia) - 2006
-Chime (US) - 2012
-N26 (Germany) - 2013
-Atom (UK) - 2013
-Monzo (UK) - 2015
-Revolut (UK) - 2015
+TODO: pic of an account and an apart
 
-^ Some of these banks 
+^ I've just came to Canada. Ran into a usual story - you need a bank acc to rent an apartment, and you need a residential address to get a bank account
+
+---
+
+# UX of an "Open an account" feature
+
+1. No preauthorized zone in the app. "Go to the site"
+1. Pre auth zone with a multi-step Choose an account feature.
+1. As #2 but with a virtual card right after registration
+
+^ Ok, I found a way to use airbnb for my proof of address
+
+---
+
+# "Junk Drawer" vs Bottom navigation view
+
+
+
+
+https://bytes.grubhub.com/from-drawer-to-bottom-nav-bar-a1828a079048
 
 ---
 
@@ -56,8 +80,8 @@ TODO: graph of shifting from traditional banks to digital office to superapps or
 # The method of research
 
 Questionnairs
-User inteviews
-UX study
+User interviews
+UX studies
 
 ---
 
@@ -215,6 +239,12 @@ Targeted product showcase
 
 ---
 
+Let's zoom it out 
+
+
+
+---
+
 Ecosystems vs Super Apps
 
 China example.
@@ -251,6 +281,7 @@ Virtual cards or card info
 
 ---
 
+
 More ideas
 
 Collaborative transactions engagement raises user activity and account balance
@@ -276,3 +307,26 @@ https://transformfinance.media/events/transform-finance-west-coast/
 
 Most important features Markswebb:
 https://medium.com/markswebb/how-to-make-the-best-digital-office-for-your-mobile-bank-85a8f075c573
+
+iPhone touch zones
+https://www.scotthurff.com/posts/how-to-design-for-thumbs-in-the-era-of-huge-screens/
+
+
+---
+
+# Footer
+
+---
+
+# First online-only banks (Neobanks)
+
+Tinkoff Bank (Russia) - 2006
+Chime (US) - 2012
+N26 (Germany) - 2013
+Atom (UK) - 2013
+Monzo (UK) - 2015
+Revolut (UK) - 2015
+
+^ Some of these banks 
+
+---
