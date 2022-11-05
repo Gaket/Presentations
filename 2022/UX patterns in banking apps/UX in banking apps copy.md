@@ -1,14 +1,14 @@
+slidenumbers: true
 
 The Macro UX And UI Patterns Among Customers In Different Countries: Understanding The Role Of “Super Apps” In The Digital Payments Ecosystem
 
 ^ Hi! My name is Artur and I'd like to decrease the degree of seriousness of this conference. Hopefully, you'll like it and I won't be punished by organizers :) I'm in a shirt first time since my wedding... that was quite a while ago
 
-
 ---
 
-The Macro *UX* And UI Patterns Among Customers In *Different Countries*: Understanding The Role Of *“Super Apps”* In The Digital Payments Ecosystem
+The Macro UI And **UX Patterns** Among Customers **In Different Countries** : Understanding The Role Of **“Super Apps”** In The Digital Payments Ecosystem
 
-^ My friends from the conference helped me to come up with such an intricate talk title that I can't even read it, so let me highlight a few things
+^ My friends from the conference helped me to come up with such an intricate talk ti  tle that I can't even read it, so let me highlight a few things
 
 ---
 
@@ -17,43 +17,42 @@ The Macro *UX* And UI Patterns Among Customers In *Different Countries*: Underst
 Director of Android Engineering at Squire
 Google Developer Expert
 Developed a banking app on Android
-
----
-
-# About me
-
-User of 8 banks in Russia
-User of 5 banks in Canada
-User of a couple UK neobanks
+User of 15 banks
 
 ^ Context  matters
 
 ---
 
+[.build-lists:true]
+
 # Agenda
 
 1. A few Millenial notes on banking apps
 1. Evolution of banking apps in Russia
-1. Top-X features to stay at the edge of the market
+1. Top-5 UX patterns important for a banking app
 1. Superapps vs Ecosystems
 
-^ Subjective and Objective
+^ Subjective and Objective. I'm in my thirties
 
 ---
 
 # The chicken or the egg dilemma
 
-TODO: pic of an account and an apart
+* Apartment 
+* Bank
+* Apartment
 
-^ I've just came to Canada. Ran into a usual story - you need a bank acc to rent an apartment, and you need a residential address to get a bank account
+^ TODO: pic of an account and an apart. I've just came to Canada. Ran into a usual story - you need a bank acc to rent an apartment, and you need a residential address to get a bank account
 
 ---
+[.build-lists:true]
 
 # UX of an "Open an account" feature
 
 1. No preauthorized zone in the app. "Go to the site"
 1. Pre auth zone with a multi-step Choose an account feature.
-1. As #2 but with a virtual card right after approval
+1. In-app progress of application + Notifications
+1. Virtual card after approval
 
 ^ Ok, I found a way to use airbnb for my proof of address
 
@@ -61,51 +60,38 @@ TODO: pic of an account and an apart
 
 # Hamburger Menu vs Bottom Tabs
 
-// TODO: just 2 examples here
-
-^ Here is what we see when we open an app
-
----
-
-# Hamburger Menu vs Bottom Tabs
-
-TODO: accessibility of iPhones
+![inline](img/drawer1.jpeg) ![inline](img/Tinkoff1.jpeg)
 
 
-https://bytes.grubhub.com/from-drawer-to-bottom-nav-bar-a1828a079048
+^ https://bytes.grubhub.com/from-drawer-to-bottom-nav-bar-a1828a079048 
+TODO: hide my last name
 
 ---
 
 > The downside of being able to show a lot of options is that you can show a lot of options. 
-
 -- Mike Stern, Apple User Experience Evangelist[^1]
 
 [^1]: http://blog.manbolo.com/2014/06/30/apple-on-hamburger-menus
 
 ---
 
-> The downside of being able to show a lot of options is that you can show a lot of options. 
-
--- Mike Stern, Apple User Experience Evangelist[^1]
-
-[^1]: http://blog.manbolo.com/2014/06/30/apple-on-hamburger-menus
+![fit](img/drawer1.jpeg)
+![fit](img/drawer2.jpeg)
+![fit](img/drawer3.jpeg)
 
 ---
 
-TODO: 3 screns of items
+## Hamburger Menu ->
+## "Junk Drawer"
 
----
-
-# Hamburger Menu -> "Junk Drawer"
-
-TODO: Drawer image
+![fit](img/real_drawer.png)
 
 ^ http://blog.manbolo.com/2014/06/30/apple-on-hamburger-menus
 
 ---
+[.autoscale: true]
 
 > Discoverability is cut almost in half by hiding a website’s main navigation. Also, task time is longer and perceived task difficulty increases.
-
 -- Nielsen Norman Group[^2]
 
 [^2]: https://www.nngroup.com/articles/hamburger-menus/
@@ -114,14 +100,26 @@ TODO: Drawer image
 
 ---
 
-# Bottom tabs notes
 
-TODO: 2 pics of bottom tab action 
+![fit](img/Tinkoff1.jpeg)
+![fit](img/Tinkoff2.jpeg)
+![fit](img/Tinkoff3.jpeg)
+
+^ # Bottom tabs TODO: add scrim on the screens
+
+---
+
+# Bottom tabs notes 
+![fit|right](img/bottom1.png)
+
+---
+
+![fit](img/bottom1.png)
+![fit](img/bottom2.png)
 
 ---
 
 > Use a tab bar only to enable navigation, not to help people perform actions. [^3]
-
 -- Apple Human Interface guidelines
 
 [^3]: https://developer.apple.com/design/human-interface-guidelines/components/navigation-and-search/tab-bars/#best-practices
@@ -130,15 +128,24 @@ TODO: 2 pics of bottom tab action
 
 # Exception?
 
-TODO: Wise and navigating to another screen
+![fit|right](img/wise_home.jpeg)
+
+^ 10.5 minutes here
+
+---
+
+![fit](img/wise_home.jpeg)
+![fit](img/wise_home.jpeg)
+
+^ 10.5 minutes here. TODO: change Navigation icon
 
 ---
 
 # "Junk Drawer" vs Bottom navigation view
 
-TODO: Tangerine video with pages loading on each click and a menu happening as the last item    
+Bottom navigation video
 
-^ User exp suffers
+^ User exp suffers. TODO: add the video
 
 ---
 
@@ -150,25 +157,20 @@ TODO: Tangerine video with pages loading on each click and a menu happening as t
 
 # Markswebb 2012 - 2022 Mobile Banking Ranking
 
-TODO: graph of shifting from traditional banks to digital office to superapps or ecosystems
+* Traditional Bank
+* Digital Office
+* Ecosystem Core / Superapp
 
-^ My personal notes may be a bit too subjective, so let's use data of a UX-research firm
-
----
-
-# The method of research
-
-Questionnairs
+^ My personal notes may be a bit too subjective, so let's use data of a UX-research firm, Questionnairs
 User interviews
-UX studies
+UX studies 
+TODO: graph of shifting
 
 ---
 
-# 2012. The baseline - "Traditional bank"
+## 2012. The baseline - "Traditional bank"
 
-TODO: replace by a pie chart on the right
-30 banks
-75% had mobile apps
+![fit|left](img/apps.png)
 
 Features:
 * Accounts list
@@ -176,6 +178,8 @@ Features:
 * Bill Payments
 * Templates
 * In-bank transfers
+
+^ TODO: replace by a pie chart on the right 
 
 ---
 
@@ -186,18 +190,36 @@ Features:
  - both for existing and new clients
  - interactive filters
  - virtual card rigth after approval
+
+---
+
+# 2013-2016. Evolution of banking apps
+
 * Online chat with support
  - ML-based answers for support
  - No timeouts when a robot answers you!
+* VoIP calls
+
+^ TODO: maybe find an animation of a robot with timeout.  video of HSBC MOBA with delayed answers
+
+---
+
+# 2013-2016. Evolution of banking apps
+
 * "News feed" for all accounts
  - Total balances
  - Transactions from different account
-* Push messages instead of SMS
- - You can send push first and only an sms on additional request
-
-TODO: find an animation of a robot with timeout
 
 ^ Example of a use case - to see how money are moved between accs, handling different cards
+
+---
+
+# 2013-2016. Evolution of banking apps
+
+* Push messages instead of SMS
+ - Convenient data pre-fill
+ - Push first, sms as a backup
+ - Cost saving
 
 ---
 
@@ -218,86 +240,48 @@ TODO: find an animation of a robot with timeout
 * Music services
 * Cellular services
 * Tax forms
+* Travel
 * Universal Bank id
 
 ^ All of this as
 
 ---
 
-# Let's zoom it out 
+# Ecosystems vs Super Apps
 
 ---
 
-Ecosystems vs Super Apps
+> AliPay and WeChat have as many users using payment services as Top-12 Chiniese banks[^5]
+-- Markswebb
 
-China example.
-WeChat
-Alternatives?
-
----
-
-According to Markswebb, it takes 2-3 years to build an ecosystem
+[^5]: https://medium.com/markswebb/why-did-banks-in-india-and-china-lose-50-of-clients-8544c3f3b7a4
 
 ---
 
-AliPay and WeChat have as many users using payment services as Top-12 Chiniese banks[^1]
-
-[^1] https://medium.com/markswebb/why-did-banks-in-india-and-china-lose-50-of-clients-8544c3f3b7a4
-
----
-
-Importantant UX patterns
+# Importantant UX patterns
 
 * Multi-step forms
 * Drafts
 * Online status of request
-* In-app registration by phone or chat
-* Currency exchange, understanding of payment costs
 * Feature search
 
 ---
 
-Must have
-
-Card lock / unlock / limits
-Virtual cards or card info
+# Thank you for your attention!
 
 ---
 
-
-More ideas
-
-Collaborative transactions engagement raises user activity and account balance
-
-Neobanks bet on easing and automating collaborative actions: they offer split-the-bill services, crowdfunding links with built-in Apple Pay and Google Pay, and sharing accounts.
-
-
-The community used for customer help saves resources
-
-One of the distinctive features of neobanks is the lack of complete customer support: most of the user goals are already automated or can be solved by the user itself. The big bet is made on a community that answers questions on forums and replaces the first line of support.
-
-Self-service and self-resolution are also achieved by developing a well-stocked knowledge base: it’s integrated within forums, offers cards or video instruction formats. Some neobanks like Revolut Business land users on FAQ pages as the first step of troubleshooting.
-
-Several neobanks of Europe and the US consider subscription management as their killer feature. The bank identifies regular charges with the same amount, then matches them with its own external services database and marks these charges as “Subscriptions”. This is the way users see their subscriptions and their share of expenditure, also they can cancel the subscription.
+# Backup slides
 
 ---
 
+# About me
 
+User of 8 banks in Russia
+User of 5 banks in Canada
+User of a couple UK neobanks
 
-# Links
-
-https://transformfinance.media/events/transform-finance-west-coast/
-
-Most important features Markswebb:
-https://medium.com/markswebb/how-to-make-the-best-digital-office-for-your-mobile-bank-85a8f075c573
-
-iPhone touch zones
-https://www.scotthurff.com/posts/how-to-design-for-thumbs-in-the-era-of-huge-screens/
-
-
----
-
-# Footer
+^ Context  matters
 
 ---
 
@@ -314,13 +298,9 @@ Revolut (UK) - 2015
 
 ---
 
-# Contacting bank - chat-related items
-
-TODO: video of HSBC MOBA with delayed answers
+# List of features
 
 ---
-
-List of features
 
 # 2013-2016. Evolution of banking apps
 
@@ -338,7 +318,7 @@ List of features
 
 ---
 
-2017
+# 2017
 
 Fines, utility bills subscription
 Reminders
@@ -354,7 +334,7 @@ https://www.youtube.com/watch?v=eRxaLE2uIvg
 
 ---
 
-2018
+# 2018
 
 Digital banking -> Digital office
 
@@ -376,8 +356,6 @@ Transaction dispute
 
 Online chat
 
-
-
 Spendings analytics
 
 By period
@@ -385,7 +363,6 @@ By category
 Diagrams and budgets
 
 ---
-
 
 Chat use cases
 
@@ -395,3 +372,26 @@ Transactions for the period from the account opening
 Transactions filters and search
 
 ---
+
+Must have
+
+Card lock / unlock / limits
+Virtual cards or card info
+
+---
+
+More ideas
+
+Collaborative transactions engagement raises user activity and account balance
+
+Neobanks bet on easing and automating collaborative actions: they offer split-the-bill services, crowdfunding links with built-in Apple Pay and Google Pay, and sharing accounts.
+
+The community used for customer help saves resources
+
+One of the distinctive features of neobanks is the lack of complete customer support: most of the user goals are already automated or can be solved by the user itself. The big bet is made on a community that answers questions on forums and replaces the first line of support.
+
+Self-service and self-resolution are also achieved by developing a well-stocked knowledge base: it’s integrated within forums, offers cards or video instruction formats. Some neobanks like Revolut Business land users on FAQ pages as the first step of troubleshooting.
+
+Several neobanks of Europe and the US consider subscription management as their killer feature. The bank identifies regular charges with the same amount, then matches them with its own external services database and marks these charges as “Subscriptions”. This is the way users see their subscriptions and their share of expenditure, also they can cancel the subscription.
+
+Markswebb
