@@ -15,6 +15,10 @@ slide-transition: true
 ![](img/evening.jpg)
 
 ---
+
+
+<!--
+
 [.autoscale:true]
 
 # About me
@@ -30,11 +34,12 @@ slide-transition: true
 
 ^ Joke it was not always like that. School / life
 
----
+
 
 ![fit](img/qr-code.png)
 
----
+-->
+
 
 # Beginning
 ![](img/jump.jpg)
@@ -55,11 +60,14 @@ slide-transition: true
 
 ---
 
+<!--
+
 ![](img/eisenhower.png)
 
 ^Do, schedule, delegate, delete Urgent tasks require your immediate attention. When something is urgent, it must be done now, and there are clear consequences if you don’t complete these tasks within a certain timeline. These are tasks you can’t avoid, and the longer you delay these tasks, the more stress you’ll likely experience, which can lead to burnout.
 
----
+-->
+
 [.background-color: #fff]
 
 ![fit](img/Eisenhower matrix.png)
@@ -101,6 +109,8 @@ slide-transition: true
 * Timeboxing
 * Triage
 * [Remaining 9](https://medium.com/swlh/the-12-practices-of-agile-results-eb6e7942a2cf)
+
+^ The Magical Number Seven, Plus or Minus Two: Some Limits on Our Capacity for Processing Information
 
 ---
 
@@ -223,6 +233,10 @@ slide-transition: true
 
 ---
 
+![fit](img/Youtube filtered highlight.png)
+
+---
+
 ![fit](img/Linkedin feed.png)
 
 ---
@@ -258,6 +272,8 @@ Reading mode
 * Do complex things rarely
 * Do easy stuff often 
 
+^ 18 minutes here
+
 [^2]: Maxim Dorofeev [Ontiko talk](https://habr.com/ru/company/oleg-bunin/blog/348714/)
 
 ---
@@ -267,7 +283,7 @@ Reading mode
 * Daniel Kahneman
 * Thinking Fast and Slow
 
-^ Most of the times we think fast. Then we make mistakes. Rarely, but sometimes, we do think slow. Then we get it right. There, you’ve read the book. Read this fast, think it over slowly, and skip this book.
+^ Most of the times we think fast. Then we make mistakes. Rarely, but sometimes, we do think slow. Then we get it right. There, you’ve read the book. Read this fast, think it over slowly, and skip this book. 
 
 ---
 
@@ -280,7 +296,17 @@ Reading mode
 
 ![](img/baseball.jpg)
 
-^For example, what's the color of a baseball ball? White. For example, let's take counting. It requires some thinking, right? A baseball bat and a ball cost $1.10. The bat costs $1 more than the ball. How much does the ball cost?
+^For example, what's the color of a baseball ball? White. That was simple, right?
+
+---
+
+![](img/baseball.jpg)
+
+* Baseball bat + ball = $1.10
+* A bat costs $1 more than a ball
+* How much for a ball?
+
+^For example, let's take counting. It requires some thinking, right? A baseball bat and a ball cost $1.10. The bat costs $1 more than the ball. How much does the ball cost? 1.05 + 0.5
 
 ---
 
@@ -340,12 +366,13 @@ Reading mode
 ![](img/road.jpg)
 
 ---
+<!--
 
 # [Jedy Techniques](https://bit.ly/3MRMHx0)
 
 ![](img/j.png)
+-->
 
----
 
 # Recap
 
@@ -364,7 +391,7 @@ Reading mode
 1. Stop and Think!
 1. Try Pomodoro
 1. Try Agile Results
-1. Check out Jedy Techniques
+1. Keep different things in different buckets
 
 ---
 
@@ -382,4 +409,9 @@ Reading mode
 * [Eisenhower matrix by Asana](https://asana.com/resources/eisenhower-matrix)
 * [Workflowy referral](https://workflowy.com/invite/365553c8.lnx)
 
+---
+
+# Image sources
+
+* https://kanbanize.com/lean-management/improvement/what-is-pdca-cycle
 

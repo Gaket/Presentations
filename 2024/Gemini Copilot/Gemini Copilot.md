@@ -80,6 +80,24 @@ https://www.linkedin.com/in/gaket/
 
 ---
 
+# Continue.dev
+
+* An open-source autopilot in your IDE
+* Connected to Gemini 1.5
+* Generate
+* Refactor 
+* Explain
+
+---
+
+# Duet AI
+
+* Works with a smaller model
+* Experiments with RAG
+* Potentially, bigger context
+
+---
+
 # Results
 
 * Model knows all your model

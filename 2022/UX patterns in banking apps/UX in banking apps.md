@@ -3,25 +3,33 @@ build-lists:true
 autoscale: true
 
 
-The Macro UX And UI Patterns Among Customers In Different Countries: Understanding The Role Of “Super Apps” In The Digital Payments Ecosystem
+## The Macro UX And UI Patterns Among Customers In Different Countries: Understanding The Role Of “Super Apps” In The Digital Payments Ecosystem
+
+### Artur Badretdinov
 
 ^ Hi! My name is Artur and I'd like to decrease the degree of seriousness of this conference. Hopefully, you'll like it and I won't be punished by organizers :) I'm in a shirt first time since my wedding... that was quite a while ago
 
 ---
 
-The Macro UI And **UX Patterns** Among Customers **In Different Countries** : Understanding The Role Of **“Super Apps”** In The Digital Payments Ecosystem
+## The Macro UI And **UX Patterns** Among Customers **In Different Countries** : Understanding The Role Of **“Super Apps”** In The Digital Payments Ecosystem
+
+### Artur Badretdinov
 
 ^ My friends from the conference helped me to come up with such an intricate talk ti  tle that I can't even read it, so let me highlight a few things
 
 ---
+[.build-lists:false]
 
 # About me
 
-Director of Android Engineering at Squire
-Google Developer Expert
-Developed a banking app on Android
-User of 15 banks
-Born in Russia, resident of Canada
+* [Artur Badretdinov](https://www.linkedin.com/in/gaket/)
+* Director of Engineering at Squire
+* Google Developer Expert
+* Developed a banking app on Android
+* User of 15 banks
+* Born in Russia, resident of Canada
+
+![50%|right](img/qr.png)
 
 ^ Context  matters
 
@@ -88,9 +96,6 @@ TODO: hide my last name
 
 ---
 
-![fit](img/thumbs.png)
-
----
 [.autoscale: true]
 
 > Discoverability is cut almost in half by hiding a website’s main navigation. Also, task time is longer and perceived task difficulty increases.
@@ -99,6 +104,10 @@ TODO: hide my last name
 [^2]: https://www.nngroup.com/articles/hamburger-menus/
 
 ^ That's why if you check out existing views in iOS eevelopment, you'll see tabs but you won't see the Drawer
+
+---
+
+![fit](img/thumbs.png)
 
 ---
 
@@ -117,6 +126,7 @@ TODO: hide my last name
 ^ User exp suffers. TODO: add the video
 
 ---
+[.build-lists: false]
 
 # To conclude
 
@@ -132,7 +142,8 @@ TODO: hide my last name
 
 ---
 
-# Markswebb 2012 - 2022 Mobile Banking Ranking
+# Markswebb 2012 - 2022 
+# Mobile Banking Ranking
 
 * Traditional Bank
 * Digital Office
@@ -234,6 +245,7 @@ Features:
 ![](img/ecosystems.jpg)
 
 ---
+[.build-lists: false]
 
 # Superapps
 
@@ -259,14 +271,19 @@ Features:
 
 ---
 
-![](img/china_banking.png)
+![fit](img/china_top.png)
 
 ---
 
-![](img/china_top.png)
+# But where did it start?
 
 ---
 
+# But where did it start?
+# - Instant payments - 
+
+---
+    
 # Food for thought
 
 * Mobile app - a commodity
@@ -279,6 +296,8 @@ Features:
 ---
 
 # Thank you for your attention!
+
+![inline|50%](img/qr.png)
 
 ---
 
