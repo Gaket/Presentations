@@ -1,6 +1,29 @@
 Hi!
 
-My name is Artur, I'm a Lead Android Dev and here is a list of the talks I've given. Most of them are in Russian about Android development and Digital Nomad lifestyle.
+My name is Artur, I'm a Director of Engineering at Squire and here is a list of the talks I've given.
+You can find slide decks and some additional materials in the respective folders split by years.
+
+2025
+1. AI Agents Workshop
+
+2024
+1. Create your own SQL Assistant
+1. Gemini as a coding Copilot
+1. Boosting Personal productivity with AI tools
+
+2023
+
+1. Increasing Productivity Across Departments using Chat GPT
+1. Jetpack Compose Navigation
+1. Working Genius framework
+
+2022
+
+1. MVU
+1. OKRs
+1. Procrastination - how to live with it?
+1. How we transitioned from Ribs to Tea architecture
+1. UX patterns in banking apps
 
 2021
 1. [Architecture in Small Teams](https://www.youtube.com/watch?v=8Vs2O8xyHyY)
