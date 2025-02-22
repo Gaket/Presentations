@@ -20,6 +20,8 @@ autoscale: true
 
 # Agenda
 
+![right|30%](img/pxl-presentations.png)
+
 - [10 min] From LLM to Agents
 - [10 min] Demo
 - [30 min] Practice
@@ -158,8 +160,8 @@ Google Developer Expert
 # Practice
 
 1. Generate Gemini API key: https://aistudio.google.com
-2. Create SmollAgents CodeAgent with network access and Gemini as an LLM
-3. Create Browser Use agent that would work with a browser on your behalf
+2. Create [SmollAgents CodeAgent](https://huggingface.co/docs/smolagents/en/guided_tour) with network access and Gemini as an LLM
+3. Create [Browser Use agent](https://docs.browser-use.com/introduction) that would work with a browser on your behalf
 
 ---
 
