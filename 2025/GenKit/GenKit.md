@@ -103,15 +103,17 @@ Built 20+ agents in the last year.
 1. https://firebase.google.com/codelabs/ai-genkit-rag
 1. We'll use Gemini API instead of Vertex. No need for Fireabase paid plan, no need to Enable Vertex AI ~~gcloud services enable aiplatform.googleapis.com~~
 1. Get api key here: https://aistudio.google.com/apikey
+1. Run export GOOGLE_API_KEY=AI...BE before starting GenKit ui with `npm run dev:genkit`
 1. Run `npm install @genkit-ai/googleai`
 1. Replace all `vertexai/gemini-2.5-flash` to `googleai/gemini-2.5-flash`
 1. Use `googleAI.embedder('text-embedding-004',...),` in the retriever instead of  `vertexAI.embedder('gemini-embedding-001'`
+1. Switch to local Ollama later: ![](https://genkit.dev/)
 
 ---
 
 ![left|fit](img/pxl-presentations.png)
 
-# Did you like the talk?
+# Did you like the workshop?
 
 Connect to me on LinkedIn!
 And likes are always appreciated :)
