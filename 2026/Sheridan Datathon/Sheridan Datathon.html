@@ -1,0 +1,810 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hire Your AI Intern</title>
+<style>
+@font-face { font-family: "Archivo"; src: url(fonts/Archivo.woff2) format("woff2"); font-weight: 100 900; font-stretch: 62% 125%; }
+@font-face { font-family: "JB"; src: url(fonts/JetBrainsMono.woff2) format("woff2"); font-weight: 100 800; }
+
+:root {
+  --paper: #F2F4F7;
+  --paper-2: #E6EAF0;
+  --ink: #15203B;
+  --ink-2: #4E5A75;
+  --rule: #C5CCD8;
+  --pen: #2747D0;
+  --hl: #FFE14A;
+  --red: #C8302C;
+  --night: #15203B;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #0d1222; height: 100%; }
+body { font-family: "Archivo", system-ui, sans-serif; color: var(--ink); overflow: hidden; }
+
+.deck { position: absolute; left: 50%; top: 50%; width: 1920px; height: 1080px; transform-origin: 0 0; }
+.slide {
+  position: absolute; inset: 0; width: 1920px; height: 1080px;
+  background: var(--paper); padding: 120px 150px 150px;
+  display: none; flex-direction: column; justify-content: center;
+  overflow: hidden;
+}
+.slide.on { display: flex; }
+.slide.top { justify-content: flex-start; padding-top: 110px; }
+
+/* type */
+h1 { font-weight: 800; font-stretch: 112%; font-size: 92px; line-height: 1.02; letter-spacing: -0.015em; max-width: 1500px; }
+h1.xl { font-size: 150px; line-height: .95; letter-spacing: -0.025em; }
+h1.xxl { font-size: 210px; line-height: .9; letter-spacing: -0.03em; }
+h2 { font-weight: 500; font-stretch: 100%; font-size: 48px; line-height: 1.2; color: var(--ink-2); margin-top: 36px; max-width: 1400px; }
+p, li { font-size: 42px; line-height: 1.35; font-stretch: 100%; }
+.lead { font-size: 48px; line-height: 1.3; max-width: 1350px; margin-top: 44px; }
+.small { font-size: 30px; line-height: 1.4; color: var(--ink-2); }
+.muted { color: var(--ink-2); }
+strong, b { font-weight: 700; }
+code, .mono { font-family: "JB", ui-monospace, monospace; font-size: .86em; }
+.gap { margin-top: 48px; }
+
+ol.steps { list-style: none; counter-reset: s; margin-top: 56px; }
+ol.steps > li { counter-increment: s; display: grid; grid-template-columns: 90px 1fr; align-items: baseline; padding: 18px 0; border-top: 2px solid var(--rule); }
+ol.steps > li:last-child { border-bottom: 2px solid var(--rule); }
+ol.steps > li::before { content: counter(s); font-weight: 800; font-stretch: 112%; font-size: 40px; color: var(--pen); }
+ul.plain { list-style: none; margin-top: 48px; }
+ul.plain > li { padding: 14px 0 14px 44px; position: relative; }
+ul.plain > li::before { content: ""; position: absolute; left: 0; top: .62em; width: 20px; height: 4px; background: var(--ink); }
+
+/* evidence marks */
+mark { background: linear-gradient(100deg, transparent 0 .2em, var(--hl) .2em calc(100% - .15em), transparent calc(100% - .15em)); color: inherit; padding: 0 .12em; margin: 0 -.06em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.pen { color: var(--pen); }
+del.red { text-decoration: none; position: relative; color: var(--ink-2); }
+del.red::after { content: ""; position: absolute; left: -4px; right: -4px; top: 52%; height: 5px; background: var(--red); transform: rotate(-2deg); border-radius: 3px; }
+.fix { color: var(--red); font-weight: 600; font-style: italic; }
+
+/* stamp */
+.stamp { display: inline-block; border: 6px solid currentColor; outline: 2px solid currentColor; outline-offset: 5px; padding: 10px 26px 8px; font-weight: 900; font-stretch: 125%; font-size: 40px; letter-spacing: .06em; text-transform: uppercase; transform: rotate(-7deg); opacity: .9; border-radius: 6px; }
+.stamp.blue { color: var(--pen); }
+.stamp.red { color: var(--red); }
+
+/* night (section) slides */
+.slide.night { background: var(--night); color: var(--paper); }
+.slide.night h2 { color: #AEB8D0; }
+.part-no { font-weight: 600; font-stretch: 100%; font-size: 34px; color: var(--hl); margin-bottom: 30px; }
+
+/* progress */
+.prog { position: absolute; left: 150px; right: 150px; bottom: 56px; display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; }
+.prog span { border-top: 6px solid var(--rule); padding-top: 12px; font-size: 22px; color: var(--ink-2); font-stretch: 100%; }
+.prog span.done { border-top-color: var(--ink-2); }
+.prog span.now { border-top-color: var(--pen); color: var(--ink); font-weight: 700; }
+.night .prog span { border-top-color: #34405e; color: #7E8AA8; }
+.night .prog span.done { border-top-color: #7E8AA8; }
+.night .prog span.now { border-top-color: var(--hl); color: var(--paper); }
+.num { position: absolute; right: 150px; top: 56px; font-size: 22px; color: var(--ink-2); font-stretch: 100%; font-variant-numeric: tabular-nums; }
+.night .num { color: #7E8AA8; }
+
+/* layouts */
+.cols { display: grid; grid-template-columns: 1fr 1fr; gap: 90px; align-items: start; }
+.cols.w60 { grid-template-columns: 1.25fr 1fr; }
+.card { background: #fff; border: 2px solid var(--rule); border-radius: 4px; padding: 40px 46px; }
+.note { background: #fff; border-left: 8px solid var(--pen); padding: 36px 44px; font-size: 40px; line-height: 1.4; max-width: 1500px; }
+.note.grey { border-left-color: var(--rule); color: var(--ink-2); }
+.count { font-weight: 800; font-stretch: 112%; font-size: 44px; margin: 18px 0 30px; }
+
+table { border-collapse: collapse; width: 100%; margin-top: 44px; font-size: 32px; }
+th { text-align: left; font-weight: 600; color: var(--ink-2); font-size: 24px; padding: 0 22px 14px 0; border-bottom: 3px solid var(--ink); }
+td { padding: 16px 22px 16px 0; border-bottom: 2px solid var(--rule); vertical-align: top; line-height: 1.3; }
+td:first-child { font-weight: 800; font-stretch: 112%; color: var(--pen); width: 60px; }
+table.plain td:first-child { color: var(--ink); font-weight: 400; font-stretch: 100%; width: auto; }
+
+pre { font-family: "JB", monospace; font-size: 29px; line-height: 1.5; background: var(--ink); color: #E8ECF5; padding: 40px 48px; border-radius: 6px; margin-top: 40px; white-space: pre; overflow: hidden; }
+pre .c { color: #8C98B8; }
+pre .k { color: #9FB4FF; }
+pre .s { color: #FFE48A; }
+
+/* pile */
+.pile { display: flex; flex-wrap: wrap; gap: 9px; width: 1620px; margin-top: 46px; }
+.pile i { width: 44px; height: 58px; background: #fff; border: 2px solid #CFD5E0; border-radius: 2px; position: relative; }
+.pile i::before, .pile i::after { content: ""; position: absolute; left: 7px; right: 7px; height: 3px; background: #DDE2EA; }
+.pile i::before { top: 12px; } .pile i::after { top: 22px; right: 16px; }
+.pile i.one { background: var(--hl); border-color: var(--ink); }
+.pile i.one::before, .pile i.one::after { background: var(--ink); }
+.pile i.bin { background: #F5DAD8; border-color: var(--red); opacity: .55; transform: rotate(-4deg); }
+.pile i.bin::before, .pile i.bin::after { background: var(--red); }
+
+/* paper-stack + bin: "Her first move" (sorting-line option) */
+.joke-stage { position: relative; height: 610px; margin-top: 24px; }
+.sheet { position: absolute; width: 76px; height: 100px; background: #fff; border: 2px solid var(--rule); border-radius: 4px; box-shadow: 0 1px 0 rgba(21,32,59,.05); }
+.sheet::before, .sheet::after { content: ""; position: absolute; left: 15px; right: 15px; height: 3px; background: #DDE2EA; }
+.sheet::before { top: 24px; } .sheet::after { top: 39px; right: 28px; }
+.bin-icon { position: absolute; width: 108px; height: 122px; }
+.bin-icon .handle { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 38px; height: 16px; border: 5px solid var(--red); border-bottom: none; border-radius: 8px 8px 0 0; background: var(--paper); }
+.bin-icon .lid { position: absolute; top: 13px; left: -10px; right: -10px; height: 9px; background: var(--red); border-radius: 2px; }
+.bin-icon .body { position: absolute; top: 23px; left: 12px; right: 12px; bottom: 0; background: var(--paper); border: 5px solid var(--red); border-top: none; clip-path: polygon(7% 0, 93% 0, 100% 100%, 0% 100%); }
+.bin-icon .body i { position: absolute; top: 14px; bottom: 14px; width: 4px; background: #E8B6B3; display: block; }
+.bin-icon .body i:nth-child(1) { left: 35%; } .bin-icon .body i:nth-child(2) { left: 57%; }
+.bin-icon .tag { position: absolute; bottom: -36px; left: 50%; transform: translateX(-50%); font-size: 22px; color: var(--ink-2); white-space: nowrap; }
+
+/* sorting line — a row of applications slides past a chute; rejects drop straight through */
+#stageC .sheet { top: 60px; left: var(--x); }
+#stageC .keep { animation: c-keep .7s ease-out forwards; animation-delay: calc(.2s + var(--i) * .04s); }
+#stageC .toss { animation: c-drop .9s cubic-bezier(.6,0,.9,.4) forwards; animation-delay: calc(.5s + var(--i) * .07s); }
+@keyframes c-keep { to { transform: translate(300px, -6px) rotate(-3deg); } }
+@keyframes c-drop {
+  0%   { transform: translate(0,0) rotate(0deg) scale(1); opacity: 1; }
+  55%  { transform: translate(calc(var(--dx) * .6), 220px) rotate(180deg) scale(.8); opacity: 1; }
+  100% { transform: translate(var(--dx), 360px) rotate(260deg) scale(.35); opacity: 0; }
+}
+#stageC .chute { position: absolute; left: 60px; right: 60px; top: 190px; border-top: 3px dashed var(--red); }
+
+/* dots */
+.dots { display: grid; gap: 4px; }
+.dots i { width: 12px; height: 12px; border-radius: 50%; background: #C9D0DC; }
+.dots i.y { background: var(--pen); }
+.funnel { display: flex; align-items: flex-end; gap: 70px; margin-top: 54px; }
+.funnel-col { display: flex; flex-direction: column; }
+.funnel-sep { font-weight: 800; font-stretch: 112%; font-size: 60px; color: var(--ink-2); padding-bottom: 28px; }
+.funnel .eq { font-weight: 800; font-stretch: 112%; font-size: 44px; margin-top: 26px; }
+.funnel .eq span { color: var(--pen); }
+.funnel .lbl { font-size: 26px; margin-top: 6px; }
+
+/* flow */
+.flow { display: flex; flex-wrap: wrap; align-items: center; gap: 18px 14px; margin-top: 60px; }
+.flow .sk { font-family: "JB", monospace; font-size: 30px; background: #fff; border: 2px solid var(--ink); padding: 14px 22px; border-radius: 4px; }
+.flow .ar { font-size: 34px; color: var(--ink-2); }
+.flow .you { font-weight: 800; font-stretch: 112%; font-size: 30px; background: var(--hl); border: 2px solid var(--ink); padding: 14px 22px; border-radius: 4px; }
+.rail { margin-top: 46px; border-top: 3px dashed var(--ink-2); padding-top: 24px; font-size: 32px; color: var(--ink-2); }
+
+.big-num { font-weight: 800; font-stretch: 112%; font-size: 120px; letter-spacing: -0.02em; line-height: 1; font-variant-numeric: tabular-nums; }
+.lbl { font-size: 28px; color: var(--ink-2); margin-top: 12px; }
+.chain { display: flex; align-items: flex-end; gap: 46px; margin-top: 22px; }
+.chain .arrow { font-size: 70px; color: var(--ink-2); padding-bottom: 50px; }
+
+.qr { width: 300px; height: 300px; }
+.photo { width: 640px; height: 820px; object-fit: cover; border-radius: 4px; }
+
+/* notes overlay */
+aside.notes { display: none; }
+body.show-notes .slide.on aside.notes { display: block; position: absolute; left: 0; right: 0; bottom: 0; background: rgba(21,32,59,.96); color: #fff; font-size: 30px; line-height: 1.4; padding: 30px 150px 110px; }
+
+/* print */
+@media print {
+  @page { size: 1920px 1080px; margin: 0; }
+  html, body { background: none; overflow: visible; height: auto; }
+  .deck { position: static; transform: none !important; width: 1920px; height: auto; }
+  .slide { position: relative; display: flex !important; page-break-after: always; break-after: page; }
+  aside.notes { display: none !important; }
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ============ OPENING ============ -->
+<section class="slide" data-part="0">
+  <h1 class="xl">Build an AI agent for your job search</h1>
+  <h2>You'll read a pile of applications. Then you'll hire the agent that writes one that works.</h2>
+  <p class="small gap">Artur Kuzmin &nbsp;/&nbsp; Sheridan Datathon 2026</p>
+  <aside class="notes">45 min. Story and steps to ~1:22, skills and live run to ~1:30, group work to ~1:55, productize to 2:00. The subtitle previews both halves: first you sit where the hiring manager sits, then you hire an AI intern of your own.</aside>
+</section>
+
+<section class="slide" data-part="0">
+  <h1>Quick show of hands</h1>
+  <ol class="steps">
+    <li>Who's early in their studies? Who's graduating in the next year?</li>
+    <li>Who's looking for an internship, co-op, or new-grad role?</li>
+    <li>Who has sent 50+ applications?</li>
+    <li>Who got replies from more than five of them?</li>
+  </ol>
+  <aside class="notes">Question 1 is just a read on the room — early-years vs. about to graduate changes which examples land. Wait for the hands to drop on question 4. That gap is the whole talk.</aside>
+</section>
+
+<section class="slide" data-part="0">
+  <div class="cols w60" style="align-items:center">
+    <div>
+      <h1>Artur Kuzmin</h1>
+      <ul class="plain">
+        <li>CTO &amp; cofounder, Kinetic Trials</li>
+        <li>Cofounder, Talent Agent</li>
+        <li>Google Developer Expert</li>
+        <li>Before: Head of AI &amp; Director of Engineering, Squire</li>
+      </ul>
+      <p class="lead">Built 20+ agents. Some of them were good interns.</p>
+      <p class="small gap">linkedin.com/in/arturkuzmin</p>
+    </div>
+    <img class="photo" src="img/Aussie.jpeg" alt="Artur Kuzmin">
+  </div>
+</section>
+
+<!-- ============ PART 1: STORY ============ -->
+<section class="slide night" data-part="1">
+  <div class="part-no">Part 1 of 6</div>
+  <h1 class="xl">A story about a student</h1>
+</section>
+
+<section class="slide" data-part="1">
+  <h1>Meet Jordan</h1>
+  <ul class="plain">
+    <li>Sheridan College CS student, graduating April 2028</li>
+    <li>Summer internship: built a Python/FastAPI service, compliance report generation <mark>40s → 6s</mark></li>
+    <li>Side project: TTC Delay Predictor, <mark>MAE 3.1 min</mark></li>
+    <li>Wants an ML internship in Toronto, summer 2027</li>
+  </ul>
+  <p class="small gap">Fictional. Every fact here lives in the Sheridan demo profile you'll run today.</p>
+  <aside class="notes">Remember the highlighted numbers: the agent will have to cite them exactly.</aside>
+</section>
+
+<section class="slide" data-part="1">
+  <h2 style="margin-top:0">October. Jordan does what everyone does.</h2>
+  <div class="chain" style="margin-top:50px">
+    <div><div class="big-num" style="font-size:260px">~300</div><div class="lbl" style="font-size:36px">Easy Apply clicks</div></div>
+    <div class="arrow">→</div>
+    <div><div class="big-num" style="font-size:260px; color:var(--red)">2</div><div class="lbl" style="font-size:36px">replies</div></div>
+  </div>
+  <aside class="notes">Illustrative, but typical: volume bots often land 1–2 interviews per 100 applications. Jordan isn't bad. Jordan is invisible.</aside>
+</section>
+
+<section class="slide" data-part="1">
+  <h1 class="xl">Now meet Priya</h1>
+  <h2>ML Engineering Manager at Maple Robotics. On Monday she posts one ML intern role.</h2>
+  <aside class="notes">Also fictional, also in today's fixtures. Let's sit in her chair.</aside>
+</section>
+
+<section class="slide top" data-part="1" id="pile-slide">
+  <h1 style="font-size:78px">By Wednesday: ~244 applications</h1>
+  <div class="pile" id="pile"></div>
+  <p class="small" style="margin-top:28px">One afternoon to read them. One of them is Jordan's.</p>
+  <aside class="notes">Greenhouse-scale volume can mean ~244 applications per job.</aside>
+</section>
+
+<section class="slide top" data-part="1" id="bin-slide-c">
+  <h1>Her first move</h1>
+  <div class="joke-stage" id="stageC">
+    <div class="chute"></div>
+    <div class="bin-icon" id="binC" style="top:360px"><div class="handle"></div><div class="lid"></div><div class="body"><i></i><i></i></div><div class="tag">rejected</div></div>
+  </div>
+  <p class="lead" style="margin-top:8px">“We don't need losers.” <span class="small muted">— every hiring manager, allegedly</span></p>
+  <aside class="notes">Optional laugh line, cut if the room's quiet. A row of applications passes a chute: every other one drops straight through into the bin. Not a real Priya quote.</aside>
+</section>
+
+<section class="slide" data-part="1">
+  <h1>What Priya reads</h1>
+  <div class="note grey gap">Hi! I'm a student looking for opportunities. Please find my resume attached.</div>
+  <div class="count muted">× 243</div>
+  <div class="note">Hi Priya, fellow Sheridan CS here (co-op, grad 2028). Your Perception team's parcel-damage models caught my eye. I built a FastAPI service that cut compliance report generation from 40s to 6s. Quick chat?</div>
+  <div class="count pen">× 1</div>
+  <aside class="notes">Which one gets a reply? Which one did Jordan send in October? The second is about her team, has one true fact, and one small ask.</aside>
+</section>
+
+<section class="slide" data-part="1">
+  <h1>Spray and pray vs targeted outreach</h1>
+  <div class="cols gap" style="align-items:center">
+    <img src="img/manyresume.png" style="width:100%; max-height:560px; object-fit:contain" alt="Many resumes">
+    <img src="img/fewresume.png" style="width:100%; max-height:560px; object-fit:contain" alt="A few targeted resumes">
+  </div>
+</section>
+
+<section class="slide top" data-part="1" id="funnel-slide">
+  <h1>Same 10 interviews. Two very different piles.</h1>
+  <div class="funnel">
+    <div class="funnel-col">
+      <div class="dots" id="dots1000" style="grid-template-columns: repeat(40, 12px)"></div>
+      <div class="eq">1,000 × 1% = <span>10</span></div>
+      <div class="lbl muted">applications, spray</div>
+    </div>
+    <div class="funnel-sep">=</div>
+    <div class="funnel-col">
+      <div class="dots" id="dots30" style="grid-template-columns: repeat(6, 12px)"></div>
+      <div class="eq">30 × 33% = <span>10</span></div>
+      <div class="lbl muted">messages, targeted</div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:50px">Same 10 interviews. <b>33× fewer messages</b> to get there.</p>
+  <aside class="notes">Last year's slide said 0.1%; the math needs 1% (0.1% of 1,000 is one interview). 1% matches the 1–2 per 100 spray bots get. The point: same outcome, radically less effort — that's the whole case for targeted over spray, which the "Steps" section now builds directly.</aside>
+</section>
+
+<!-- ============ PART 2: STEPS ============ -->
+<section class="slide night" data-part="2">
+  <div class="part-no">Part 2 of 6</div>
+  <h1 class="xl">The steps of finding a job</h1>
+</section>
+
+<section class="slide" data-part="2">
+  <h1>The targeted funnel</h1>
+  <ol class="steps">
+    <li>Find live roles</li>
+    <li>Score your fit honestly</li>
+    <li>Tailor from real facts</li>
+    <li>Find the right people</li>
+    <li>Write to them</li>
+    <li>Track and follow up</li>
+  </ol>
+  <aside class="notes">Remember these six. In ten minutes they become six skills.</aside>
+</section>
+
+<section class="slide" data-part="2">
+  <h1>Find the people behind the posting</h1>
+  <ol class="steps">
+    <li>The hiring team: “Meet the hiring team” on LinkedIn</li>
+    <li>Alumni from your school on that team</li>
+    <li>Alumni founders. Moda, founded by Waterloo grads, hires Waterloo talent. At Sheridan, start with EDGE.</li>
+    <li>Ex-colleagues from co-ops, clubs, hackathons</li>
+  </ol>
+  <p class="small gap">Then go multi-channel: email, LinkedIn, a follow. Without becoming a stalker.</p>
+  <aside class="notes">Step 4 of the funnel: find the right people. The next two slides are step 5, writing to them.</aside>
+</section>
+
+<section class="slide" data-part="2">
+  <h1>Talk about them, not you</h1>
+  <div class="note grey gap">Hi! I'm Jordan. I'm a CS student and I'm looking forward to learning from you.</div>
+  <p class="small" style="margin:16px 0 34px">“Great!”</p>
+  <div class="note">Hi Priya! Your Perception team ships models behind a FastAPI service. I built a FastAPI service at my internship that cut compliance report generation from 40s to 6s.</div>
+  <p class="small pen" style="margin-top:16px">“Really? Tell me more.”</p>
+</section>
+
+<section class="slide" data-part="2">
+  <h1>Perfect your tweet-length intro</h1>
+  <p class="lead">“I help <span class="pen">[target]</span> achieve <span class="pen">[benefit]</span>.”</p>
+  <p class="lead" style="margin-top:20px">“I help <span class="pen">[target]</span> achieve <span class="pen">[benefit]</span> without <span class="pen">[pain]</span>.”</p>
+  <div class="note gap">I'm Jordan. I make slow Python services fast.</div>
+  <p class="small" style="margin-top:16px">Backed by exp1: <mark>“compliance report generation 40s -&gt; 6s”</mark></p>
+</section>
+
+<section class="slide" data-part="2">
+  <h2 style="margin-top:0">Six steps × 30 roles, by hand</h2>
+  <h1 class="xl" style="margin-top:30px">That's a full-time job.</h1>
+  <p class="lead">So let's hire help.</p>
+  <aside class="notes">This is why people spray: targeted works but doesn't scale by hand.</aside>
+</section>
+
+<!-- ============ PART 3: SKILLS ============ -->
+<section class="slide night" data-part="3">
+  <div class="part-no">Part 3 of 6</div>
+  <h1 class="xl">Antigravity and skills</h1>
+</section>
+
+<section class="slide" data-part="3">
+  <h1 class="xl">You're hiring an intern.</h1>
+  <table class="plain" style="max-width:1300px; font-size:42px">
+    <tr><td class="muted">The intern</td><td><b>an AI agent</b></td></tr>
+    <tr><td class="muted">Job description</td><td>the six steps</td></tr>
+    <tr><td class="muted">Onboarding docs</td><td>skills</td></tr>
+    <tr><td class="muted">House rules</td><td><code>AGENTS.md</code></td></tr>
+    <tr><td class="muted">Manager</td><td><b>you</b></td></tr>
+  </table>
+</section>
+
+<section class="slide" data-part="3">
+  <h1>What's an agent?</h1>
+  <ol class="steps">
+    <li>LLM chat: answers questions</li>
+    <li>Function calling: the model asks your code to do things</li>
+    <li>Agent: a goal, a plan, tools, and knowing when it's done</li>
+  </ol>
+  <p class="lead"><b>Copilot, not autopilot.</b> You press Submit.</p>
+  <aside class="notes">Workflows: predictable, cheaper, faster. Agents: open-ended work. Autopilot job search is brittle, against most sites' terms, and gets accounts banned.</aside>
+</section>
+
+<section class="slide top" data-part="3">
+  <h1>All it takes is a folder</h1>
+<pre><span class="c">my-agent/</span>
+AGENTS.md                 <span class="c"># house rules — what it must and must never do</span>
+.agents/skills/
+  score-fit/SKILL.md       <span class="c"># one skill, one job</span>
+  find-roles/SKILL.md
+profile/
+  facts.json               <span class="c"># your preferences — confirmed facts, not guesses</span>
+  tracker.md                <span class="c"># its memory — status, history, follow-ups</span></pre>
+  <p class="lead" style="margin-top:40px">No server, no database. <b>Plain files</b> it reads and edits — that you can read too.</p>
+  <aside class="notes">This is the whole trick: point any agent (Antigravity, Claude Code, Cursor, Codex, Gemini CLI) at the folder and it onboards itself from these files.</aside>
+</section>
+
+<section class="slide top" data-part="3">
+  <h1>The intern's first night</h1>
+  <p class="small" style="margin-top:14px">A real run, anonymized: an experienced QA engineer in Toronto.</p>
+  <div class="cols" style="margin-top:56px; gap:110px">
+    <div>
+      <p class="small">Public job-board scan</p>
+      <div class="chain">
+        <div><div class="big-num">14,482</div><div class="lbl">postings</div></div>
+        <div class="arrow">→</div>
+        <div><div class="big-num" style="color:var(--red)">6</div><div class="lbl">kept, all wrong</div></div>
+      </div>
+      <p style="font-size:34px; margin-top:26px"><del class="red">London</del> &nbsp; <del class="red">Boston</del> &nbsp; <del class="red">an electrical substation</del></p>
+    </div>
+    <div>
+      <p class="small">LinkedIn Jobs, read in the browser</p>
+      <div class="chain">
+        <div><div class="big-num">10</div><div class="lbl">real Toronto roles</div></div>
+        <div class="arrow">→</div>
+        <div><div class="big-num pen">3</div><div class="lbl">strong fits, tailored</div></div>
+      </div>
+      <p style="font-size:34px; margin-top:26px">Plus: the hiring manager who posted the role, and former colleagues who could refer her.</p>
+    </div>
+  </div>
+  <aside class="notes">Speaker's call whether to tell it. Keep her anonymous.</aside>
+</section>
+
+<section class="slide top" data-part="3">
+  <h1>Its first performance review</h1>
+  <table class="plain" style="font-size:38px; margin-top:50px">
+    <tr><th>What it wrote</th><th>What was true</th></tr>
+    <tr><td>her <del class="red">former</del> employer</td><td class="fix">her current employer</td></tr>
+    <tr><td><del class="red">uptime</del></td><td class="fix">crash-free rate</td></tr>
+    <tr><td><del class="red">more years of experience</del></td><td class="fix">computed from her dates</td></tr>
+    <tr><td><del class="red">the “official” salary band</del></td><td class="fix">no source at all</td></tr>
+  </table>
+  <p class="lead" style="margin-top:50px">Would you let this intern email a hiring manager alone?</p>
+</section>
+
+<section class="slide" data-part="3">
+  <h1>So we wrote house rules</h1>
+  <ol class="steps">
+    <li><span><b>Confirm facts at setup.</b> Only facts you confirmed go into <code>facts.json</code>.</span></li>
+    <li><span><b>Cite every claim.</b> Each bullet points to a fact id and <mark>the exact string</mark>.</span></li>
+    <li><span><b>Only send what you approved.</b> No auto-submit, ever.</span></li>
+  </ol>
+  <p class="small gap" style="max-width:1450px">LinkedIn access is opt-in, capped, and stops at any warning. An account I know got restricted after ~190 profile views in a day and 100+ invites over ~5 days.</p>
+</section>
+
+<section class="slide top" data-part="3">
+  <h1>Onboarding docs = skills</h1>
+<pre><span class="c">---</span>
+<span class="k">name:</span> score-fit
+<span class="k">description:</span> Scores how well a student's profile fits an internship,
+  co-op, or new-grad posting on a 1-5 scale with evidence-labelled
+  blockers, skill gaps, and work-authorization checks...
+<span class="c">---</span>
+<span class="k"># score-fit</span>
+<span class="k">## Steps</span>
+1. Extract from the JD: title, level, season, location...
+<span class="k">## Rules</span>
+- <span class="s">Inflating a score or a match is the failure this skill exists to prevent.</span></pre>
+  <p class="small" style="margin-top:30px">A folder with a <code>SKILL.md</code>. Works in Antigravity, Claude Code, Cursor, Codex, Gemini CLI.</p>
+</section>
+
+<section class="slide" data-part="3">
+  <h1>Google Antigravity</h1>
+  <ul class="plain">
+    <li>An agent-first IDE: editor, agent manager, browser</li>
+    <li>Skills load from <code>.agents/skills/</code>, or <code>~/.gemini/config/skills/</code> globally</li>
+    <li>The agent reads each skill's description and picks the right one</li>
+  </ul>
+</section>
+
+<section class="slide" data-part="3">
+  <h1>Meet the team: 10 skills</h1>
+  <div class="flow">
+    <span class="sk">setup-profile</span><span class="ar">→</span>
+    <span class="sk">find-roles</span><span class="ar">→</span>
+    <span class="sk">score-fit</span><span class="ar">→</span>
+    <span class="sk">tailor-resume</span><span class="ar">→</span>
+    <span class="sk">find-people</span><span class="ar">→</span>
+    <span class="sk">draft-outreach</span><span class="ar">→</span>
+    <span class="you">you approve</span><span class="ar">→</span>
+    <span class="sk">track-pipeline</span><span class="ar">→</span>
+    <span class="sk">check-inbox</span>
+    <span class="sk">debrief</span>
+  </div>
+  <div class="rail"><code>linkedin-browser</code>: the only skill that touches LinkedIn. Opt-in, read-only, capped.</div>
+</section>
+
+<section class="slide" data-part="3">
+  <div class="cols w60" style="align-items:center">
+    <div>
+      <h1>Install</h1>
+<pre>git clone https://github.com/Gaket/talent-agent
+cd talent-agent
+cp -r profile.example profile</pre>
+      <p class="small" style="margin-top:30px">Or <code>npx skills add Gaket/talent-agent</code></p>
+    </div>
+    <div style="text-align:center">
+      <img class="qr" src="img/qr-repo.svg" alt="QR code for github.com/Gaket/talent-agent" style="width:420px;height:420px">
+      <p class="small">github.com/Gaket/talent-agent</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PART 4: RUN ============ -->
+<section class="slide night" data-part="4">
+  <div class="part-no">Part 4 of 6</div>
+  <h1 class="xl">Running the skills</h1>
+  <h2>Jordan's agent, live. <code>demo: true</code>, so every send is disabled. No logins: every skill takes pasted text.</h2>
+</section>
+
+<section class="slide top" data-part="4">
+  <h1>“Find ML internships in Toronto for summer 2027”</h1>
+  <table class="plain">
+    <tr><th>Role</th><th>Verdict</th></tr>
+    <tr><td>Maple Robotics, ML Intern (Summer 2027)</td><td class="pen"><b>keep</b></td></tr>
+    <tr><td>Northbank Financial, DS Co-op, Winter 2027</td><td>keep, co-op term to check</td></tr>
+    <tr><td>Lumen Health, SWE Intern, “Remote”</td><td>keep, location unknown</td></tr>
+    <tr><td>Maple Robotics, Senior ML Engineer</td><td style="color:var(--red)">drop, senior</td></tr>
+    <tr><td>Aurora Labs, AI Research Intern, London UK</td><td style="color:var(--red)">drop, location</td></tr>
+  </table>
+  <p class="small" style="margin-top:26px">Fixture: <code>linkedin-jobs-paste.md</code></p>
+</section>
+
+<section class="slide top" data-part="4">
+  <h1>“Score the Maple role”</h1>
+<pre>maple-robotics — ML Intern (Summer 2027)
+Work auth:   Canada citizen ✓  <span class="c">posted: "legally eligible to work in Canada"</span>
+Grad window: Dec 2027–Jun 2028 vs Apr 2028 ✓  <span class="c">posted</span>
+Matches:     Python  <span class="s">exp1: "Built Python/FastAPI service; compliance report generation 40s -> 6s"</span>
+             sklearn <span class="s">proj1: "Gradient-boosted model on open TTC data"</span>
+Gaps:        PyTorch is listed only, never used → small PyTorch project</pre>
+  <p class="small" style="margin-top:30px">Every match cites a fact id and the exact string. A skill on your skills line isn't experience.</p>
+</section>
+
+<section class="slide" data-part="4">
+  <h1>“Who should I contact at Maple?”</h1>
+  <ol class="steps">
+    <li><span><b>Priya Raman</b>, ML Eng Manager. On the hiring team, Sheridan CS alum.</span></li>
+    <li><span><b>Daniel Okafor</b>, SWE Perception. Sheridan CS 2023, on the team.</span></li>
+    <li><span><b>Sam Patel</b>, university recruiter.</span></li>
+    <li><span class="muted">Mei Chen, cofounder &amp; CTO. Waterloo, so no school tie.</span></li>
+  </ol>
+  <aside class="notes">The agent must not invent a tie: Mei is Waterloo, Jordan is Sheridan.</aside>
+</section>
+
+<section class="slide top" data-part="4">
+  <h1>“Draft a connection note to Priya”</h1>
+  <div style="position:relative">
+    <div class="note gap" style="max-width:1120px">Hi Priya, fellow <mark>Sheridan CS</mark> here (<mark>co-op, grad 2028</mark>). Your Perception team's parcel-damage models caught my eye. I built a <mark>FastAPI service that cut compliance report generation from 40s to 6s</mark>. Quick chat?</div>
+    <div class="stamp blue" style="position:absolute; right:0; top:110px">Approve q1?</div>
+  </div>
+  <p class="small" style="margin-top:18px">193 / 200 characters &nbsp;/&nbsp; queue row <code>q1</code>, state <code>draft</code></p>
+  <table class="plain" style="font-size:26px; margin-top:22px; max-width:1620px">
+    <tr><th>Sentence</th><th>Fact</th></tr>
+    <tr><td>Sheridan CS, co-op, grad 2028</td><td><code>edu1</code> “Sheridan College”, “Computer Science (Co-op)”, “2028-04”</td></tr>
+    <tr><td>FastAPI service, 40s to 6s</td><td><code>exp1</code> “Built Python/FastAPI service; compliance report generation 40s -&gt; 6s”</td></tr>
+  </table>
+</section>
+
+<section class="slide" data-part="4">
+  <h1>Log it. Debrief. Check the inbox.</h1>
+  <ul class="plain">
+    <li><b>Log it:</b> a tracker row for Maple, Priya marked <code>connect_sent</code></li>
+    <li><b>Debrief</b> Jordan's Nov 20 screen with Priya: a gap on “why gradient boosting?”; the “50 classmates” claim goes to proposed facts, not facts</li>
+    <li><b>Check inbox:</b> match by req id; a webinar “offer” is not an offer</li>
+    <li>Both fixtures hide an instruction aimed at the AI. A good agent quotes it and ignores it.</li>
+  </ul>
+  <aside class="notes">Remember Priya's pile? Jordan got the screen. Same student, same facts, different funnel.</aside>
+</section>
+
+<section class="slide top" data-part="4">
+  <h1>For real: connect your inbox and calendar</h1>
+  <p class="small" style="margin-top:14px">One-time setup, for your own search — today's demo stayed on pasted text.</p>
+<pre>gws auth login --readonly -s gmail       <span class="c"># check-inbox reads it</span>
+gws auth login --readonly -s calendar    <span class="c"># agenda, interview conflicts</span></pre>
+  <ul class="plain gap">
+    <li>Read-only scopes. It never sends an email or books an event</li>
+    <li>Set <code>inbox.gmail: true</code> in <code>profile/prefs.yml</code> to turn it on</li>
+    <li>Skip this entirely: every skill also takes pasted emails</li>
+  </ul>
+  <aside class="notes">gws = the Google Workspace CLI (github.com/googleworkspace/cli). check-inbox already uses it for Gmail; calendar is the same login, same read-only posture.</aside>
+</section>
+
+<section class="slide top" data-part="4">
+  <h1>Automate the watching, not the sending</h1>
+  <ol class="steps">
+    <li><span>An invite lands in Gmail → <code>check-inbox</code> matches it to the role and flags it, no one asked</span></li>
+    <li><span>Before the call → <code>find-people</code> pulls a one-page brief on the interviewer</span></li>
+    <li><span>After the call → the transcript lands from your recorder (Otter, Fireflies, Granola...) and <code>debrief</code> runs on it automatically</span></li>
+  </ol>
+  <p class="lead" style="margin-top:40px">Automation decides <i>when</i> to run a skill. <b>Never what to send.</b></p>
+  <aside class="notes">Same rule as "copilot, not autopilot" from Part 3: a schedule can trigger check-inbox or debrief, but every draft still waits for approve.</aside>
+</section>
+
+<!-- ============ PART 5: YOUR TURN ============ -->
+<section class="slide night" data-part="5">
+  <div class="part-no">Part 5 of 6 &nbsp;/&nbsp; 25 minutes</div>
+  <h1 class="xl">Your turn: make it yours</h1>
+</section>
+
+<section class="slide" data-part="5">
+  <h1>Performance review, 25 minutes</h1>
+  <ol class="steps">
+    <li>Groups of 4–6. One laptop drives.</li>
+    <li>Pick one task.</li>
+    <li><span>Done = your skill handles the given case <b>and</b> one failure case you invent.</span></li>
+    <li>Show the diff.</li>
+  </ol>
+  <aside class="notes">1:30 to 1:55. Call time at 1:50. Gemini free tier in AI Studio or the Cloud credits you just claimed.</aside>
+</section>
+
+<section class="slide top" data-part="5">
+  <h1>Pick one task</h1>
+  <table style="font-size:29px; margin-top:34px">
+    <tr><th></th><th>Skill</th><th>Task</th></tr>
+    <tr><td>A</td><td><code>find-roles</code></td><td>Add 3 GTA employers to <code>boards.example.yml</code>; <code>ats_fetch.py</code> still runs</td></tr>
+    <tr><td>B</td><td><code>find-people</code></td><td>Make it work for your school: LinkedIn slug, entrepreneurship hub, clubs, hackathons</td></tr>
+    <tr><td>C</td><td><code>score-fit</code></td><td>Co-op term and grad window: 3 tiny postings that pass, flag, and block</td></tr>
+    <tr><td>D</td><td><code>draft-outreach</code></td><td>A “career-fair follow-up” type: you met them at a booth today</td></tr>
+    <tr><td>E</td><td><code>debrief</code></td><td>Online-assessment mode: tag questions by topic (arrays, SQL, probability)</td></tr>
+    <tr><td>F</td><td><code>check-inbox</code></td><td>Add 3 tricky emails and classify them right</td></tr>
+    <tr><td>G</td><td><code>track-pipeline</code></td><td>A Mermaid funnel from <code>tracker.md</code>: shortlisted → applied → interview → offer</td></tr>
+    <tr><td>H</td><td>all</td><td>Advanced: a <code>career_stage: student | experienced</code> pref</td></tr>
+  </table>
+</section>
+
+<section class="slide" data-part="5">
+  <h1 class="xl">Show the diff</h1>
+  <ol class="steps">
+    <li>What did your intern get wrong before?</li>
+    <li>What does it do now?</li>
+    <li>What failure case did you invent?</li>
+  </ol>
+</section>
+
+<!-- ============ PART 6: SHIP ============ -->
+<section class="slide night" data-part="6">
+  <div class="part-no">Part 6 of 6</div>
+  <h1 class="xl">Promote the intern</h1>
+  <h2>From your laptop to a product.</h2>
+</section>
+
+<section class="slide" data-part="6">
+  <h1>You don't have to ship anything</h1>
+  <p class="lead">Antigravity itself — the IDE, the Agent manager, or the CLI — already is your personal agent.</p>
+  <ul class="plain gap">
+    <li>Keep the skills in <code>.agents/skills/</code> and just keep asking</li>
+    <li>No deploy, no API key, no hosting bill</li>
+    <li>Good enough for one person's own job search</li>
+  </ul>
+  <p class="small gap">Everything after this slide is for when you want to hand the agent to <i>someone else</i>, or run it unattended.</p>
+</section>
+
+<section class="slide" data-part="6">
+  <h1>Three ways to ship it</h1>
+  <table class="plain" style="font-size:36px">
+    <tr><th>Path</th><th>What you bring</th><th>Pick it when</th></tr>
+    <tr><td><b>Gemini API Managed Agents</b></td><td>your <code>AGENTS.md</code> and skills, as they are</td><td>the skills already work</td></tr>
+    <tr><td><b>Antigravity SDK</b></td><td>Python, on your own infra</td><td>you want that agent harness inside your app</td></tr>
+    <tr><td><b>ADK + agents CLI</b></td><td>code-first agents, graphs, multi-agent</td><td>you want full control of tools and flow</td></tr>
+  </table>
+</section>
+
+<section class="slide top" data-part="6">
+  <h1>Your skills folder is the product</h1>
+<pre style="font-size:26px; padding:32px 44px"><span class="k">from</span> pathlib <span class="k">import</span> Path
+<span class="k">from</span> google <span class="k">import</span> genai
+
+<span class="k">def</span> src(path, target):
+    <span class="k">return</span> {<span class="s">"type"</span>: <span class="s">"inline"</span>, <span class="s">"target"</span>: target, <span class="s">"content"</span>: Path(path).read_text()}
+
+client = genai.Client()
+client.agents.create(
+    id=<span class="s">"job-search-agent"</span>,
+    base_agent=<span class="s">"antigravity-preview-09-2026"</span>,   <span class="c"># check the docs for the current id</span>
+    base_environment={<span class="s">"type"</span>: <span class="s">"remote"</span>, <span class="s">"sources"</span>:
+        [src(<span class="s">"AGENTS.md"</span>, <span class="s">".agents/AGENTS.md"</span>)] +
+        [src(p, str(p)) <span class="k">for</span> p <span class="k">in</span> Path(<span class="s">".agents/skills"</span>).rglob(<span class="s">"SKILL.md"</span>)]},
+)</pre>
+</section>
+
+<section class="slide top" data-part="6">
+  <h1>Or build it with ADK + agents CLI</h1>
+<pre>uvx google-agents-cli setup
+agents-cli create job-agent --prototype
+agents-cli run <span class="s">"Find ML internships in Toronto for summer 2027"</span>
+agents-cli eval run
+agents-cli deploy        <span class="c"># Agent Runtime, Cloud Run, or GKE</span></pre>
+</section>
+
+<section class="slide" data-part="6">
+  <h1>Don't want to build it?</h1>
+  <ul class="plain" style="margin-top:36px">
+    <li><b>Copilots, you still submit:</b> JobRight, Simplify Copilot, Hiring Cafe, LoopCV (20% off with a student email), Kickresume (free Premium via ISIC / UNiDAYS)</li>
+    <li><b>Full auto-submit:</b> ApplyPilot, EasyApplyJobsBot. Terms-of-service and ban risk.</li>
+  </ul>
+  <p class="small gap">Free tiers to build your own: Google AI Studio Gemini API, Groq, Hugging Face.</p>
+</section>
+
+<!-- ============ CLOSE ============ -->
+<section class="slide top" data-part="6" id="close-slide">
+  <div class="pile" id="pile2" style="margin-top:0; opacity:.9"></div>
+  <h1 class="xl" style="margin-top:50px">Be the one message Priya answers.</h1>
+</section>
+
+<section class="slide" data-part="6">
+  <h1>What's next?</h1>
+  <ol class="steps">
+    <li>Start with a folder and Antigravity</li>
+    <li>Build skills</li>
+    <li>Repeat and tweak</li>
+    <li>Get hired!</li>
+  </ol>
+</section>
+
+<section class="slide" data-part="6">
+  <div class="cols w60" style="align-items:center">
+    <div>
+      <h1 class="xl">Artur Kuzmin</h1>
+      <p class="lead">linkedin.com/in/arturkuzmin</p>
+      <p class="lead" style="margin-top:14px">github.com/Gaket/talent-agent</p>
+      <p class="small gap">Star it, fork it, send me your diff.</p>
+    </div>
+    <div style="text-align:center">
+      <img class="qr" src="img/qr-repo.svg" alt="QR code for github.com/Gaket/talent-agent" style="width:440px;height:440px">
+    </div>
+  </div>
+</section>
+
+</div>
+
+<script>
+const PARTS = ["Story", "Steps", "Skills", "Run", "Your turn", "Ship"];
+const slides = [...document.querySelectorAll(".slide")];
+const N = slides.length;
+
+function fillPile(el, n, oneAt) {
+  for (let i = 0; i < n; i++) { const b = document.createElement("i"); if (i === oneAt) b.className = "one"; el.appendChild(b); }
+}
+fillPile(document.getElementById("pile"), 244, 157);
+fillPile(document.getElementById("pile2"), 120, 77);
+// "Her first move": a row of 14 sheets; every other one drops into the bin.
+(() => {
+  const stage = document.getElementById("stageC");
+  const n = 14, startX = 70, stepX = 100;
+  const binEl = document.getElementById("binC");
+  const binX = 680;
+  binEl.style.left = binX + "px";
+  for (let i = 0; i < n; i++) {
+    const x = startX + i * stepX;
+    const s = document.createElement("div");
+    s.className = "sheet " + (i % 2 === 0 ? "keep" : "toss");
+    s.style.setProperty("--i", i);
+    s.style.setProperty("--x", x + "px");
+    s.style.setProperty("--dx", (binX - x) + "px");
+    stage.appendChild(s);
+  }
+})();
+function fillDots(el, n, k) {
+  // spread the k hits evenly through n
+  const hits = new Set(); for (let j = 0; j < k; j++) hits.add(Math.floor((j + .5) * n / k));
+  for (let i = 0; i < n; i++) { const d = document.createElement("i"); if (hits.has(i)) d.className = "y"; el.appendChild(d); }
+}
+fillDots(document.getElementById("dots1000"), 1000, 10);
+(() => { const el = document.getElementById("dots30"); for (let i = 0; i < 30; i++) { const d = document.createElement("i"); if (i % 3 === 0) d.className = "y"; el.appendChild(d); } })();
+
+slides.forEach((s, i) => {
+  const part = +s.dataset.part;
+  const num = document.createElement("div"); num.className = "num"; num.textContent = `${i + 1} / ${N}`; s.appendChild(num);
+  if (part > 0) {
+    const p = document.createElement("div"); p.className = "prog";
+    PARTS.forEach((name, j) => { const sp = document.createElement("span"); sp.textContent = name; if (j + 1 < part) sp.className = "done"; if (j + 1 === part) sp.className = "now"; p.appendChild(sp); });
+    s.appendChild(p);
+  }
+});
+
+const params = new URLSearchParams(location.search);
+let cur = 0;
+function show(i) {
+  cur = Math.max(0, Math.min(N - 1, i));
+  slides.forEach((s, j) => s.classList.toggle("on", j === cur));
+  if (!params.has("s")) history.replaceState(null, "", "#" + (cur + 1));
+}
+function fit() {
+  const d = document.getElementById("deck");
+  const k = Math.min(innerWidth / 1920, innerHeight / 1080);
+  d.style.transform = `scale(${k}) translate(-50%, -50%)`;
+  d.style.transformOrigin = "0 0";
+  d.style.left = "50%"; d.style.top = "50%";
+  d.style.transform = `translate(-50%, -50%) scale(${k})`;
+  d.style.transformOrigin = "50% 50%";
+}
+addEventListener("resize", fit); fit();
+addEventListener("keydown", e => {
+  if (["ArrowRight", "PageDown", " ", "Enter"].includes(e.key)) show(cur + 1);
+  else if (["ArrowLeft", "PageUp", "Backspace"].includes(e.key)) show(cur - 1);
+  else if (e.key === "Home") show(0);
+  else if (e.key === "End") show(N - 1);
+  else if (e.key === "n" || e.key === "N") document.body.classList.toggle("show-notes");
+  else if (e.key === "f" || e.key === "F") document.documentElement.requestFullscreen?.();
+});
+addEventListener("click", e => { if (e.clientX > innerWidth / 3) show(cur + 1); else show(cur - 1); });
+addEventListener("contextmenu", e => { e.preventDefault(); show(cur - 1); });
+show(params.has("s") ? +params.get("s") - 1 : (parseInt(location.hash.slice(1)) || 1) - 1);
+</script>
+</body>
+</html>
